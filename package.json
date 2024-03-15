@@ -15,6 +15,6 @@
     "vue-router": "4.2.5"
   },
   "dependencies": {
-    "@twicpics/components": "0.27.2"
+    "@twicpics/components": "0.28"
   }
 }
