@@ -10,11 +10,11 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "3.11.1",
-    "vue": "3.4.21",
-    "vue-router": "4.3.0"
+    "nuxt": "3.11.2",
+    "vue": "3.4.26",
+    "vue-router": "4.3.2"
   },
   "dependencies": {
-    "@twicpics/components": "0.29.0"
+    "@twicpics/components": "0.29.1"
   }
 }
