@@ -2,8 +2,11 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: [`@twicpics/components/nuxt3`],
+
   twicpics: {
     domain: `https://demo.twic.pics`,
     maxDPR:2
   },
+
+  compatibilityDate: "2025-01-20",
 });
