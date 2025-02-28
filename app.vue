@@ -2,11 +2,13 @@
   <main>
     <Header/>
     <button @click="toggleMode" class="toggle-button">Switch Mode</button>
+    <p class="label">{{ mode === 'cover' ? 'This Is Cover' : 'This Is Contain' }}</p>
+    <hr>
+    <p class="label">This Uses TwicPicture</p>
     <TwicPicture
       alt="Photo by Karsten Winegeart from Unsplash"
       src="puppy-dressed-as-a-reindeer.jpeg"
       eager
-      focus="@xl top"
       :mode="mode"
       ratio="
         3/4
@@ -19,6 +21,24 @@
         1200px
       "
     />
+    <TwicPicture
+      alt="Photo by Karsten Winegeart from Unsplash"
+      src="components/dogs/karsten-winegeart-7sgPfAcM6_o-unsplash.jpg"
+      eager
+      :mode="mode"
+      ratio="
+        3/4
+        @666 1
+        @md 4/3
+        @xl 21/9
+      "
+      sizes="
+        (max-width: 1200px) calc(100vw - 48px),
+        1200px
+      "
+    />
+    <hr>
+    <p class="label">This Uses TwicImg</p>
     <div class="grid">
       <TwicImg
         v-for="(image, index) in images"
@@ -36,14 +56,6 @@
 <style>
 body {
   background-color: #111317;
-}
-
-.contain {
-  object-fit: contain;
-}
-
-.contain-with-inside {
-  object-fit: cover;
 }
 
 main {
@@ -72,6 +84,14 @@ main {
 
 .toggle-button:hover {
   background-color: #0056b3;
+}
+
+.label {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  margin-top: 16px;
 }
 </style>
 
