@@ -1,11 +1,13 @@
 <template>
   <main>
     <Header/>
+    <button @click="toggleMode" class="toggle-button">Switch Mode</button>
     <TwicPicture
       alt="Photo by Karsten Winegeart from Unsplash"
       src="puppy-dressed-as-a-reindeer.jpeg"
       eager
       focus="@xl top"
+      :mode="mode"
       ratio="
         3/4
         @666 1
@@ -24,16 +26,24 @@
         alt="Photo by Karsten Winegeart from Unsplash"
         class="item"
         ratio="4/3"
-        :src="image"
-        mode="cover"
+        :src="`${image}?v=${mode=='contain' ? 1 : 0}`"
+        :mode="mode"
       ></TwicImg>
     </div>
   </main>
 </template>
-<style>
 
+<style>
 body {
   background-color: #111317;
+}
+
+.contain {
+  object-fit: contain;
+}
+
+.contain-with-inside {
+  object-fit: cover;
 }
 
 main {
@@ -49,12 +59,29 @@ main {
   padding-top: 2rem;
 }
 
+.toggle-button {
+  display: block;
+  margin: 16px auto;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.toggle-button:hover {
+  background-color: #0056b3;
+}
 </style>
+
 <script>
 export default {
   data() {
     return {
+      mode: "cover",
       images: [
+        'puppy-dressed-as-a-reindeer.jpeg',
         'components/dogs/karsten-winegeart-RU6wtyteGgc-unsplash.jpg',
         'components/dogs/karsten-winegeart-7sgPfAcM6_o-unsplash.jpg',
         'components/dogs/karsten-winegeart-uNVjLyA3xu8-unsplash.jpg',
@@ -69,6 +96,11 @@ export default {
         'components/dogs/karsten-winegeart-aOXXUPGSu0I-unsplash.jpg',
       ],
     };
+  },
+  methods: {
+    toggleMode() {
+      this.mode = this.mode === "cover" ? "contain" : "cover";
+    },
   },
 };
 </script>
